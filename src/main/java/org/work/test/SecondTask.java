@@ -24,18 +24,26 @@ public class SecondTask {
         return mapPhoneList;
     }
 
+    public static void findValue(String mask) {
+        int i = 0;
+        for(Map.Entry<String, ArrayList<String>> entry : mapPhoneList().entrySet()) {
+            String fullName = entry.getKey();
+            if(fullName.startsWith(mask)) {
+                i++;
+                System.out.println("Фамилия: " + fullName);
+                System.out.println("Номера:");
+                System.out.println(entry.getValue());
+            }
+        }
+        if(i == 0){
+            System.out.println("Ф.И.О. " + mask + " в базе отсутствует!!!");
+        }
+    }
+
     public static void main(String[] args) {
         Scanner in1 = new Scanner(System.in);
         System.out.println("Введите Ф.И.О.:");
         String input1 = in1.nextLine();
-
-        if(mapPhoneList().containsKey(input1)) {
-            System.out.println("Номера: ");
-            for (String value : mapPhoneList().get(input1)) {
-                System.out.println(value);
-            }
-        } else {
-            System.out.println("Ф.И.О. " + input1 + " в базе отсутствует!!!");
-        }
+        findValue(input1);
     }
 }
