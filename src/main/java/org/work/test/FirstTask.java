@@ -1,7 +1,5 @@
 package org.work.test;
 
-import java.net.Inet4Address;
-import java.net.InetAddress;
 import java.util.Scanner;
 
 public class FirstTask {
