@@ -1,12 +1,20 @@
 import org.junit.Test;
-import org.work.test.SecondTask;
+import org.work.test.SecondTaskClass.Phonebook;
 
 public class SecondTaskTest {
+    Phonebook testvalue = new Phonebook();
 
     @Test
-    public void testFindValue() {
+    public void testFindValueError() {
         String str1 = "Его%";
 
-        SecondTask.findValue(str1);
+        testvalue.findValue(str1);
+    }
+
+    @Test
+    public void testFindShortValue() {
+        String str1 = "Его";
+
+        testvalue.findValue(str1);
     }
 }
