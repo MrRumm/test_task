@@ -8,7 +8,7 @@ import java.util.Scanner;
 
 public class calculator {
     public static void main(String[] args) {
-        /**Scanner in = new Scanner(System.in);
+        Scanner in = new Scanner(System.in);
         String s = in.nextLine();
         ExpressionParser n = new ExpressionParser();
         List<String> expression = n.parse(s);
@@ -18,7 +18,11 @@ public class calculator {
             System.out.print("Постфиксное выражение: ");
             for (String x : expression) System.out.print(x + " ");
             System.out.println();
-            System.out.println("Решение: " + Ideon.calc(expression));
-        }*/
+            try {
+                System.out.println("Решение: " + Ideon.calc(expression));
+            } catch (ArithmeticException e) {
+                System.out.println("Недопустимая арифметическая операция! Деление на 0!");
+            }
+        }
     }
 }

@@ -1,5 +1,7 @@
 package org.work.test.calculate;
 
+import java.lang.String;
+
 import java.util.*;
 
 public class ExpressionParser {
@@ -15,6 +17,7 @@ public class ExpressionParser {
     }
 
     private static boolean isOperator(String token) {
+        if (token.equals("u-")) return true;
         for (int i = 0; i < operators.length(); i++) {
             if (token.charAt(0) == operators.charAt(i)) return true;
         }
@@ -57,6 +60,9 @@ public class ExpressionParser {
                     stack.pop();
                 }
                 else {
+                    if (curr.equals("-") && (prev.equals("") || (isDelimiter(prev) && !prev.equals(")")))) {
+                        curr = "u-";
+                    }
 
                     while (!stack.isEmpty() && (priority(curr) <= priority(stack.peek()))) {
                         postfix.add(stack.pop());
@@ -65,8 +71,10 @@ public class ExpressionParser {
                 }
 
             }
-
             else {
+                if (curr.startsWith("${")){
+
+                }
                 postfix.add(curr);
             }
             prev = curr;

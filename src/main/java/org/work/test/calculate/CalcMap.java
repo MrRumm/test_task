@@ -1,27 +1,15 @@
 package org.work.test.calculate;
 
-import java.util.ArrayList;
+import java.math.BigDecimal;
 import java.util.HashMap;
 import java.util.Map;
 
 public class CalcMap {
-    public static Map<String, Integer> mapVariableList(){
-        Map<String, Integer> mapVariableList = new HashMap<String, Integer>();
-
-        mapVariableList.put("current_year", 2018);
+    public static Map<String, BigDecimal> mapVariableList(){
+        Map<String, BigDecimal> mapVariableList = new HashMap<String, BigDecimal>();
+        BigDecimal year = new BigDecimal(2018);
+        mapVariableList.put("current_year", year);
 
         return mapVariableList;
-    }
-
-    public static boolean findValue(String mask) {
-        int i = 0;
-        for(Map.Entry<String, Integer> entry : mapVariableList().entrySet()) {
-            String varKey = entry.getKey();
-            if(varKey.startsWith(mask)) {
-                i++;
-                return true;
-            }
-        }
-        return false;
     }
 }
