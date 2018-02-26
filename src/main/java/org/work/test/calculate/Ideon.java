@@ -14,6 +14,8 @@ public class Ideon {
                 BigDecimal varMap;
                 varMap = entry.getValue();
                 return varMap;
+            } else if (variableStr.matches("(?i).*[a-zA-Z].*")) {
+                throw new IllegalArgumentException("Переменная " + variableStr + " не существует!!!");
             }
         }
         return new BigDecimal(Double.valueOf(inputStr));

@@ -8,7 +8,7 @@ public class ExpressionParser {
     private static String operators = "+-*/^";
     private static String delimiters = "() " + operators;
     public static boolean flag = true;
-    private static boolean isDelimiter(String token) {
+    public static boolean isDelimiter(String token) {
         if (token.length() != 1) return false;
         for (int i = 0; i < delimiters.length(); i++) {
             if (token.charAt(0) == delimiters.charAt(i)) return true;
@@ -16,7 +16,7 @@ public class ExpressionParser {
         return false;
     }
 
-    private static boolean isOperator(String token) {
+    public static boolean isOperator(String token) {
         if (token.equals("u-")) return true;
         for (int i = 0; i < operators.length(); i++) {
             if (token.charAt(0) == operators.charAt(i)) return true;
@@ -24,7 +24,7 @@ public class ExpressionParser {
         return false;
     }
 
-    private static int priority(String token) {
+    public static int priority(String token) {
         if (token.equals("(")) return 1;
         if (token.equals("+") || token.equals("-")) return 2;
         if (token.equals("*") || token.equals("/")) return 3;
